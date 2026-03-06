@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}
+Stats - SMS
+{% endblock title %}
+
+{% block content %}
+    
+<div class="stats-container">
+
+<h1 class="stats-title">Student Statistics</h1>
+
+<div class="stats-cards">
+
+<div class="stat-card">
+<h3>Total Students</h3>
+<p>{{ total_students }}</p>
+</div>
+
+</div>
+
+<h2>Students Per Degree</h2>
+
+<table class="stats-table">
+
+<tr>
+<th>Degree</th>
+<th>Total Students</th>
+</tr>
+
+{% for degree, count in degree_stats %}
+
+<tr>
+<td>{{ degree }}</td>
+<td>{{ count }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+
+<h2>Latest Students</h2>
+
+<table class="latest-table">
+
+<tr>
+<th>Name</th>
+<th>Registration</th>
+<th>Degree</th>
+</tr>
+
+{% for student in latest_students %}
+
+<tr>
+<td>{{ student.name }}</td>
+<td>{{ student.reg }}</td>
+<td>{{ student.degree }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+{% endblock content %}

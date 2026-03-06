@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}
+    Add - SMS
+{% endblock title %}
+{% block content %}
+    <div class="main">
+    <div class="topbar">
+        <h1>Student Management System</h1>
+    </div>
+<div class="add-student-container">
+
+    <h2>Add Student Record</h2>
+
+    <div class="student-form-box">
+
+        <!-- FULL FORM (LEFT + RIGHT) -->
+        <form class="student-form-wrapper" action="/add" method="POST" enctype="multipart/form-data">
+
+            <div class="left-form">
+
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter full name" name="name" required>
+
+                <label>CNIC</label>
+                <input type="text" placeholder="Enter CNIC" name="cnic" required>
+
+                <label>Registration No</label>
+                <input type="text" placeholder="Enter registration number" name="reg" required>
+
+                <label>Phone Number</label>
+                <input type="text" placeholder="Enter phone number" name="phone">
+
+                <label>Email</label>
+                <input type="email" placeholder="Enter email address" name="email" required>
+
+                <label>Degree Program</label>
+                <input type="text" placeholder="Enter degree name" name="degree" required>
+
+            </div>
+
+            <!-- RIGHT SIDE PHOTO UPLOAD -->
+            <div class="photo-section">
+                <div class="photo-box" id="photoPreview">
+                    <p>Student Photo</p>
+                </div>
+                <input type="file" id="photoUpload" name="photo" accept="image/*" class="upload-btn" required>
+            </div>
+            <button type="submit" class="submit-btn">Add Student</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- IMAGE PREVIEW SCRIPT -->
+<script>
+document.getElementById("photoUpload").addEventListener("change", function(e) {
+    const preview = document.getElementById("photoPreview");
+    const file = e.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            preview.style.backgroundImage = `url(${event.target.result})`;
+            preview.innerHTML = "";
+        };
+        reader.readAsDataURL(file);
+    }
+});
+</script>
+
+
+
+{% endblock content %}

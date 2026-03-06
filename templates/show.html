@@ -1,0 +1,46 @@
+{% extends 'homebase.html' %}
+{% block title %}
+    Students - SMS
+{% endblock title %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<div class="topbar">
+    <h1>Student Management System</h1>
+    <h2>Students List</h2>
+</div>
+        <div class="search-page-container">
+
+            <form method="post">
+                <div class="search-box">
+                    <input type="text" placeholder="Search here..." name="name" class="search-input">
+                    <button class="search-btn">Search</button>
+                </div>
+            </form>
+            
+        <table class="search-table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Degree</th>
+                <th>Email</th>
+                <th>Photo</th>
+            </tr>
+            {% if show %}
+            {% for user in show %}
+
+            <tr>
+                <td>{{user.reg}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.degree}}</td>
+                <td>{{user.email}}</td>
+                <td><img src="static/uploads/{{user.photo}}" alt="" width="80px" class="table"></td>
+        
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+{% endblock content %}

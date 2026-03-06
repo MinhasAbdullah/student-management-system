@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}
+Records - SMS
+{% endblock title %}
+{% block content %}
+<div class="main">
+    <div class="topbar">
+        <h1>Student Management System</h1>
+    </div>
+
+    <div class="content">
+        <div class="header">
+            <h2>Students List</h2>
+            <button class="add-btn" onclick="location.href='/add'">+ Add Student</button>
+        </div>
+        <div class="search-page-container">
+
+            <form method="post">
+                <div class="search-box">
+                    <input type="text" placeholder="Search here..." name="name" class="search-input">
+                    <button class="search-btn">Search</button>
+                </div>
+            </form>
+            
+        <table class="search-table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Reg No</th>
+                <th>Email</th>
+                <th>Photo</th>
+                <th>Actions</th>
+            </tr>
+            {% if records %}
+            {% for user in records %}
+
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.reg}}</td>
+                <td>{{user.email}}</td>
+                <td><img src="static/uploads/{{user.photo}}" alt="" width="80px" class="table"></td>
+                <td>
+                    <form action="/update/{{user.id}}" style="display:inline;">
+                        <button class="edit-btn"  name="update">
+                            Edit
+                        </button>
+                    </form>
+                    <form method="post" action="/records" style="display:inline;">
+                        <button class="delete-btn" value="{{ user.id }}" name="delete">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+</div>
+{% endblock content %}

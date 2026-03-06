@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}SMS{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div class="logo">S.M.S</div>
+
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('show') }}">Students</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+    </ul>
+
+</nav>
+
+<!-- PAGE CONTENT -->
+<div class="main-content">
+
+{% block content %}
+
+{% endblock %}
+
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+<p>© 2025 Student Management System | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

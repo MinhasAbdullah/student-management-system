@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Update - SMS
+{% endblock title %}
+
+{% block content %}
+<div class="main">
+    <div class="topbar">
+        <h1>Student Management System</h1>
+    </div>
+
+    <div class="add-student-container">
+        <h2>Update Student Record</h2>
+
+        {% if student %}
+        <div class="student-form-box">
+            <form class="student-form-wrapper" method="POST" enctype="multipart/form-data">
+                <!-- LEFT FORM -->
+                <div class="left-form">
+                    <label>Full Name</label>
+                    <input type="text" name="name" placeholder="Enter full name" value="{{ student.name }}" required>
+
+                    <label>CNIC</label>
+                    <input type="text" name="cnic" placeholder="Enter CNIC" value="{{ student.cnic }}" required>
+
+                    <label>Registration No</label>
+                    <input type="text" name="reg" placeholder="Enter registration number" value="{{ student.reg }}">
+
+                    <label>Phone Number</label>
+                    <input type="text" name="phone" placeholder="Enter phone number" value="{{ student.phone }}">
+
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="Enter email address" value="{{ student.email }}">
+
+                    <label>Degree Program</label>
+                    <input type="text" name="degree" placeholder="Enter degree name" value="{{ student.degree }}">
+                </div>
+                
+            <!-- RIGHT SIDE PHOTO UPLOAD -->
+           <div class="photo-section">
+    <div class="photo-box" id="photoPreview"
+        {% if student.photo %}
+            style="background-image: url('{{ url_for('static', filename='uploads/' + student.photo) }}');"
+        {% endif %}
+    >
+        {% if not student.photo %}
+            <p>Student Photo</p>
+        {% endif %}
+    </div>
+    <input type="file" id="photoUpload" name="photo" accept="image/*" class="upload-btn">
+</div>
+
+            <button type="submit" class="submit-btn">Update Student</button>
+            
+        </form>
+        
+    </div>
+    
+</div>
+{% endif %}
+
+<!-- IMAGE PREVIEW SCRIPT -->
+<script>
+document.getElementById("photoUpload").addEventListener("change", function(e) {
+    const preview = document.getElementById("photoPreview");
+    const file = e.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            preview.style.backgroundImage = `url(${event.target.result})`;
+            preview.innerHTML = "";
+        };
+        reader.readAsDataURL(file);
+    }
+});
+</script>
+
+
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard-SMS {% endblock title %}
+{% block content %}
+    
+<div class="main">
+    <div class="topbar">
+        <h1>Student Management System</h1>
+    </div>
+
+<div class="dashboard-container">
+
+    <!-- Profile Section -->
+    <div class="profile-box">
+        <img src="static/image/admin2.png" alt="Admin Picture">
+        <h2>Abdullah Minhas</h2>
+        <p>Admin123</p>
+        <p><strong>System Administrator</strong></p>
+    </div>
+
+    <!-- Dashboard Buttons -->
+    <div class="buttons">
+        <a href="/add" class="btn">Add</a>
+        <a href="/records" class="btn">Records</a>
+        <a href="/stats" class="btn">Stats</a>
+    </div>
+
+</div>
+
+    {% endblock content %}
+    

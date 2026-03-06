@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    
+
+    <div class="sidebar">
+        <h1>SMS</h1>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/add">Add</a>
+        <a href="/records">Records</a>
+        <a href="/stats">Stats</a>
+        <a href="/login">Logout</a>
+    </div>
+    {% block content %}
+
+    {% endblock content %}
+
+</body>
+
+</html>
