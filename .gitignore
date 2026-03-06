@@ -1,6 +1,5 @@
 my_venv/
 __pycache__/
 *.pyc
-instance/
 .env
 tempCodeRunnerFile.py
