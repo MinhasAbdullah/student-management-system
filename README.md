@@ -31,4 +31,5 @@ A web-based Student Management System built with Flask and SQLAlchemy that allow
  2. Create a virtual environment
  3. Install dependencies
  4. Run the application
- 5. 
+
+
