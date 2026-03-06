@@ -23,8 +23,9 @@ A web-based Student Management System built with Flask and SQLAlchemy that allow
 
 ## Screenshots
 <img width="1600" height="821" alt="image" src="https://github.com/user-attachments/assets/ead74d9b-cc77-4cd2-b2f6-d05d700df396" />
-
+<img width="1392" height="761" alt="image" src="https://github.com/user-attachments/assets/65f5ac3e-a23d-47de-abf3-e46ae2fac0bc" />
 <img width="1591" height="801" alt="image" src="https://github.com/user-attachments/assets/c3eccaa6-eab2-4c9a-b2df-fda87e8bdba2" />
+<img width="1389" height="767" alt="image" src="https://github.com/user-attachments/assets/2066105a-5fdd-407a-bdda-10df0923a393" />
 
  ## Installation & Setup
  1. Clone the repository
